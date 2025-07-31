@@ -40,7 +40,8 @@ const Login = () => {
         toast.error(result.error);
       }
     } catch (error) {
-      toast.error('An unexpected error occurred');
+      const message = error.response?.data?.message || 'An unexpected error occurred';
+      toast.error(message);
     } finally {
       setLoading(false);
     }

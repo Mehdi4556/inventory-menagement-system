@@ -18,7 +18,8 @@ const Categories = () => {
       const response = await api.get('/categories');
       setCategories(response.data.data);
     } catch (error) {
-      toast.error('Failed to fetch categories');
+      const message = error.response?.data?.message || 'Failed to fetch categories';
+      toast.error(message);
     } finally {
       setLoading(false);
     }

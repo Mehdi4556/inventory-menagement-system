@@ -30,7 +30,8 @@ const ProductList = () => {
       const response = await api.get(`/products?${params.toString()}`);
       setProducts(response.data.data);
     } catch (error) {
-      toast.error('Failed to fetch products');
+      const message = error.response?.data?.message || 'Failed to fetch products';
+      toast.error(message);
     } finally {
       setLoading(false);
     }
@@ -41,7 +42,8 @@ const ProductList = () => {
       const response = await api.get('/categories');
       setCategories(response.data.data);
     } catch (error) {
-      toast.error('Failed to fetch categories');
+      const message = error.response?.data?.message || 'Failed to fetch categories';
+      toast.error(message);
     }
   };
 

@@ -35,7 +35,8 @@ const ProductForm = () => {
         inStock: product.inStock,
       });
     } catch (error) {
-      toast.error('Failed to fetch product');
+      const message = error.response?.data?.message || 'Failed to fetch product';
+      toast.error(message);
       navigate('/products');
     }
   };
