@@ -19,6 +19,7 @@ const Categories = () => {
       setCategories(response.data.data);
     } catch (error) {
       const message = error.response?.data?.message || 'Failed to fetch categories';
+    
       toast.error(message);
     } finally {
       setLoading(false);
